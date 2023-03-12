@@ -57,9 +57,9 @@ if($_SESSION['name']!='oasis')
                         <li class="nav-item">
                             <a class="nav-link" href="addTeacher.php">Teachers</a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="addStudent.php">Students</a>
-                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="report.php">Report</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="timetable-manage.php">Time Table</a>
                         </li>

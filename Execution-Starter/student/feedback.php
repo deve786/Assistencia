@@ -12,7 +12,7 @@ try{
             
     //student data insertion to the database table "student"
     require('connect.php');
-    $res = mysqli_query($conn,"INSERT INTO `feedback`(`name`, `email`, `subject`, `message`, `feedbackto`) VALUES ('$_POST[name]','$_POST[email]','$_POST[subject]','$_POST[message]','$_POST[towhom]')");
+    $res = mysqli_query($conn,"INSERT INTO `feedback`(`name`, `email`, `feedback`, `feedbackto`) VALUES ('$_POST[name]','$_POST[email]','$_POST[message]','$_POST[towhom]')");
     $success_msg = "Feedback send successfully.";
     }
 }
@@ -120,10 +120,7 @@ catch(Execption $e){
                                 <input class="form-control" type="email" name="email" id="w3lSender" placeholder=""
                                     required="">
                             </div>
-                            <div class="form-group mb-3">
-                                <label for="w3lSubject">Subject</label>
-                                <input class="form-control" type="text" name="subject" id="w3lSubject" required="">
-                            </div>
+                            
                             <div class="form-group mb-3">
                                 <label for="w3lSubject">To:</label>
                                 <select name='towhom'>

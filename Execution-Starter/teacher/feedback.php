@@ -68,12 +68,12 @@ if (isset($_POST['delete'])) {
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav ml-lg-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="adminWelcome.php">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="teacherDashboard.php">Home <span class="sr-only">(current)</span></a>
                         </li>
                         
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="timetable-manage.php">Time Table</a>
+                            <a class="nav-link" href="timetable-view.php">Time Table</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="logout.php">Logout</a>
@@ -121,7 +121,7 @@ if (isset($_POST['delete'])) {
             if (mysqli_num_rows($result) > 0 )    {
 	    
 	    while($row = mysqli_fetch_assoc($result)) {
-            if($row['feedbackto']=='admin' ){
+            if($row['feedbackto']=='teacher' ){
 	        echo "<tr>
             
             <td>".$row["name"]."</td>

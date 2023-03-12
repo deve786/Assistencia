@@ -68,6 +68,9 @@ if($_SESSION['name']!='oasis')
                             <a class="nav-link" href="timetable-view.php">Time Table</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="feedback.php">Feedback</a>
+                        </li>
+                        <li class="nav-item">
                         <a class="nav-link" href="logout.php">Logout</a>
                         </li>
                         

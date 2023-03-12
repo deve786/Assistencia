@@ -7,30 +7,15 @@ if($_SESSION['name']!='oasis')
 {
   header('location: ../index.html');
 }
-require('connect.php');
-$sql = "SELECT * FROM feedback";
-$result = mysqli_query($conn, $sql);
-if (isset($_POST['delete'])) {
-    $id = $_POST['delete'];
-    
-    // Delete specified feedback row from database
-    $sql = "DELETE FROM feedback WHERE id = $id";
-    if (mysqli_query($conn, $sql)) {
-        $success_msg = "Feedback delete successfully.";
-    } else {
-        echo "Error deleting feedback: " . mysqli_error($conn);
-    }
-}
 ?>
 <!doctype html>
 <html lang="en">
-   
 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Asistencia - Feedback</title>
+    <title>Asistencia - Student Report</title>
     <!-- google-fonts -->
     <link href="//fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
@@ -39,7 +24,7 @@ if (isset($_POST['delete'])) {
     <link rel="stylesheet" type="text/css" href="../assets/css/fontawesome-all.min.css">
     <!-- Template CSS Style link -->
     <link rel="stylesheet" type="text/css" href="../assets/css/style-starter.css">
-    <!-- <link rel="stylesheet" type="text/css" href="../assets/css/admin/style.css"> -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/admin/style.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
 </head>
 
@@ -71,9 +56,11 @@ if (isset($_POST['delete'])) {
                             <a class="nav-link" href="adminWelcome.php">Home <span class="sr-only">(current)</span></a>
                         </li>
                         
-                        
                         <li class="nav-item">
-                            <a class="nav-link" href="timetable-manage.php">Time Table</a>
+                            <a class="nav-link" href="report.php">Report</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="timetable-view.php">Time Table</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="logout.php">Logout</a>
@@ -104,45 +91,111 @@ if (isset($_POST['delete'])) {
     <div class="row">
 
   <div class="content">
-    <h3>Feedback</h3>
+    <h3>Student Report</h3>
     <br>
-    <table class="table table-bordered">
-            <thead>
-                <tr>
-                <th scope="col">From</th>
-                <th scope="col">Email</th>
-                <th scope="col">Message</th>
-                </tr>
-            </thead>
+    <form method="post" action="" class="form-horizontal col-md-6 col-md-offset-3">
 
-            <tbody>
-                
-           <?php
-            if (mysqli_num_rows($result) > 0 )    {
-	    
-	    while($row = mysqli_fetch_assoc($result)) {
-            if($row['feedbackto']=='admin' ){
-	        echo "<tr>
+  <div class="form-group">
+
+    <label  for="input1" class="col-sm-3 control-label">Select Subject</label>
+      <div class="col-sm-4">
+      <select name="whichcourse" id="input1">
+        <option  value="gra">Graphics</option>
+       <option  value="crypt">Cryptography</option>
+      <option  value="bd">Big Data</option>
+      <option  value="iot">IoT</option>
+      <option  value="mini">Mini Project</option>
+      
+            </select>
+      </div>
+
+  </div>
+
+        <div class="form-group">
+           <label for="input1" class="col-sm-3 control-label">Your Reg. No.</label>
+              <div class="col-sm-7">
+                  <input type="text" name="sr_id"  class="form-control" id="input1" placeholder="enter your reg. no." />
+              </div>
+        </div>
+        <input type="submit" class="btn btn-primary col-md-3 col-md-offset-7" value="Go!" name="sr_btn" />
+    </form>
+
+    <br>
+
+    <form method="post" action="" class="form-horizontal col-md-6 col-md-offset-3">
+    <table class="table table-striped">
+
+   <?php
+    include "connect.php";
+    //checking the form for ID
+    if(isset($_POST['sr_btn'])){
+
+    //initializing ID 
+     $sr_id = $_POST['sr_id'];
+     $course = $_POST['whichcourse'];
+
+     $i=0;
+     $count_pre = 0;
+     
+     //query for searching respective ID
+    //  $all_query = mysql_query("select * from reports where reports.st_id='$sr_id' and reports.course = '$course'");
+    //  $count_tot = mysql_num_rows($all_query);
+     $query2 ="select student_id,count(*) as countP from attendance where attendance.student_id='$sr_id' and attendance.course = '$course' and attendance.st_status='Present'";
+     $query1= "select count(*) as countT from attendance where attendance.student_id='$sr_id' and attendance.course = '$course'";
+     $count_tot;
+     if ($singleT = mysqli_query($conn, $query1)) {
+        // Fetch one and one row
+        while ($row = mysqli_fetch_row($singleT)) {
             
-            <td>".$row["name"]."</td>
-            <td>".$row["email"]."</td>
-            <td>".$row["feedback"]."</td>
-            <td><form method='post'><button type='submit' name='delete' value='".$row["id"]."'>Delete</button></form></td>
-            </tr>";
-            }
+            if (isset($row))
+                {
+                $count_tot=$row[0];
+                }
         }
-         
-	    echo "</table>";
-	} else {
-	    echo "No feedback data found";
-	}
-         ?>   
+    }
+    //  $row=mysqli_fetch_row($singleT);
+     
+    if ($all_query = mysqli_query($conn, $query2)) {
+     while ($data = mysqli_fetch_array($all_query)) {
+       $i++;
+      //  if($data['st_status'] == "Present"){
+      //     $count_pre++;
+      //  }
+       if($i <= 1){
+     ?>
         
+
+     <tbody>
+      <tr>
+          <td>Registration No.: </td>
+          <td><?php echo $data['student_id']; ?></td>
+      </tr>
+
+      <tr>
+        <td>Total Class (Days): </td>
+        <td><?php echo $count_tot; ?> </td>
+      </tr>
+
+      <tr>
+        <td>Present (Days): </td>
+        <td><?php echo $data[1]; ?> </td>
+      </tr>
+
+      <tr>
+        <td>Absent (Days): </td>
+        <td><?php echo $count_tot -  $data[1]; ?> </td>
+      </tr>
+
     </tbody>
+
+   <?php
+
+     }  
+    }}}
+
+     ?>
     </table>
-    <div class="message">
-                                            <?php if(isset($success_msg)) echo $success_msg; if(isset($error_msg)) echo $error_msg; ?>
-                                        </div>
+  </form>
   </div>
 
 </div>
@@ -151,7 +204,7 @@ if (isset($_POST['delete'])) {
 
    
     <!-- footer -->
-    <footer id="foot" class="w3l-footer-22 py-5">
+    <footer class="w3l-footer-22 py-5">
         
         <!-- copyright -->
         <div class="copyright-footer text-center">

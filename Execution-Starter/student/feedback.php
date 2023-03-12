@@ -7,6 +7,20 @@ if($_SESSION['name']!='oasis')
 {
   header('location: ../index.html');
 }
+try{
+    if(isset($_POST['feedbck'])){
+            
+    //student data insertion to the database table "student"
+    require('connect.php');
+    $res = mysqli_query($conn,"INSERT INTO `feedback`(`name`, `email`, `subject`, `message`, `feedbackto`) VALUES ('$_POST[name]','$_POST[email]','$_POST[subject]','$_POST[message]','$_POST[towhom]')");
+    $success_msg = "Feedback send successfully.";
+    }
+}
+catch(Execption $e){
+  $error_msg =$e->getMessage();
+}
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -15,7 +29,7 @@ if($_SESSION['name']!='oasis')
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Asistencia - Teacher Registration</title>
+    <title>Asistencia - Feedback</title>
     <!-- google-fonts -->
     <link href="//fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
@@ -24,10 +38,11 @@ if($_SESSION['name']!='oasis')
     <link rel="stylesheet" type="text/css" href="../assets/css/fontawesome-all.min.css">
     <!-- Template CSS Style link -->
     <link rel="stylesheet" type="text/css" href="../assets/css/style-starter.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/admin/style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../assets/css/admin/style.css"> -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
 </head>
 
-<body>
+<body style="background-color:grey">
     <!--header-->
     <header id="site-header" class="fixed-top">
         <div class="container">
@@ -52,24 +67,18 @@ if($_SESSION['name']!='oasis')
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav ml-lg-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="adminWelcome.html">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="addTeacher.php">Teachers</a>
-                        </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="addStudent.php">Students</a>
-                        </li> -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="timetable-manage.php">Time Table</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="feedback.php">Feedback</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="../logout.php">Logout</a>
+                            <a class="nav-link" href="studentDashboard.php">Home <span class="sr-only">(current)</span></a>
                         </li>
                         
+                        <li class="nav-item">
+                            <a class="nav-link" href="report.php">Report</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="timetable-view.php">Time Table</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Logout</a>
+                        </li>
                         
                     </ul>
                 </div>
@@ -93,24 +102,54 @@ if($_SESSION['name']!='oasis')
     </header>
     <!--//header-->
 
-    <!-- banner section -->
-    <section class="banner-19">
-        <div class="banner-layer">
-            
-            <div class="main-content-top">
-                <div class="container">
-                    <div class="main-content">
-                        <!-- if logo is image enable this   
-                        <a class="logo" href="index.html">
-                            <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-                        </a> -->
-                        <h1 style="font-size:80px; line-height: 80px;" >Welcome Admin</h1>
+    <div class="row">
+
+  <div class="content">
+    <h3>Feedback</h3>
+    <br>
+    <form method="post" class="w3layouts-contact-fm">
+                    <div class="row main-cont-sec">
+                        <div class="col-md-6 left-cont-contact">
+                            <div class="form-group mb-3">
+                                <label for="w3lName">Your Name</label>
+                                <input class="form-control" type="text" name="name" id="w3lName" placeholder=""
+                                    required="">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="w3lSender">Your Email</label>
+                                <input class="form-control" type="email" name="email" id="w3lSender" placeholder=""
+                                    required="">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="w3lSubject">Subject</label>
+                                <input class="form-control" type="text" name="subject" id="w3lSubject" required="">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="w3lSubject">To:</label>
+                                <select name='towhom'>
+                                    <option value="admin">Admin</option>
+                                    <option value="teacher">Teacher</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 right-cont-contact">
+                            <div class="form-group">
+                                <label for="w3lSubject">Write Message</label>
+                                <textarea class="form-control" rows="6" name="message" id="w3lMessage" placeholder=""
+                                    required></textarea>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- //banner section -->
+                    <div class="form-group-2 mt-3 text-right">
+                        <button type="submit" class="btn btn-style" name='feedbck' >Send</button>
+                    </div>
+                    <div class="message">
+                                            <?php if(isset($success_msg)) echo $success_msg; if(isset($error_msg)) echo $error_msg; ?>
+                                        </div>
+                </form>
+  </div>
+
+</div>
 
  
 

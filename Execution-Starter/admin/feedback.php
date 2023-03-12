@@ -1,4 +1,28 @@
+<?php
 
+ob_start();
+session_start();
+
+if($_SESSION['name']!='oasis')
+{
+  header('location: ../index.html');
+}
+try{
+    if(isset($_POST['feedbck'])){
+            
+    //student data insertion to the database table "student"
+    require('connect.php');
+    $feedback= mysqli_query($conn,"SELECT `name`,  `message` FROM `feedback`from feedback");
+    $data = $feedback->fetch_assoc();
+    $count=mysqli_query($conn,"SELECT COUNT(*) as name FROM feedback");
+    }
+}
+catch(Execption $e){
+  $error_msg =$e->getMessage();
+}
+
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -6,19 +30,20 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Asistencia - Student Registration</title>
+    <title>Asistencia - Feedback</title>
     <!-- google-fonts -->
     <link href="//fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <!-- //google-fonts -->
     <!-- Font-Awesome-Icons-CSS -->
-    <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/fontawesome-all.min.css">
     <!-- Template CSS Style link -->
-    <link rel="stylesheet" href="../assets/css/style-starter.css">
-    <link rel="stylesheet" href="../assets/css/admin/styleReg.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style-starter.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../assets/css/admin/style.css"> -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
 </head>
 
-<body>
+<body style="background-color:grey">
     <!--header-->
     <header id="site-header" class="fixed-top">
         <div class="container">
@@ -43,16 +68,17 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav ml-lg-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="studentDashboard.php">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="report.php">Report</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="adminLogin.html">Admin Login</a>
+                            <a class="nav-link" href="timetable-view.php">Time Table</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="teacherLogin.html">Teacher Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.php">Contact</a>
+                        <a class="nav-link" href="logout.php">Logout</a>
                         </li>
                         
                     </ul>
@@ -77,66 +103,34 @@
     </header>
     <!--//header-->
 
-    <!-- banner section -->
-    <section class="banner-19">
-        <div class="banner-layer">
-            <img id="banner" src="../assets/images/admin.jpg">
-            <div class="main-content-top">
-                <div class="container">
-                    <div class="main-content">
-                        
-                        <div class="w3l-signinform">
-                            <!-- container -->
-                            <div class="wrapper">
-                                <!-- main content -->
-                                <div class="w3l-form-info">
-                                    <div class="w3_info">
-                                        <h1>Student Registration</h1>
-                                        
-                                        
-                                        <form action="studentreg-connect.php" method="post" target="myIframe">
-                                            <div class="input-group">
-                                                <span><i class="fa fa-user" aria-hidden="true"></i></span>
-                                                <input type="text" placeholder="Name" required="" name="name">
-                                            </div>
-                                            <div class="input-group">
-                                                <span><i class="fa fa-user" aria-hidden="true"></i></span>
-                                                <input type="email" placeholder="Email" required="" name="email">
-                                            </div>
-                                            <div class="input-group">
-                                                <span><i class="fa fa-user" aria-hidden="true"></i></span>
-                                                <input type="text" placeholder="Phone No" required="" name="phoneno">
-                                            </div>
-                                            <div class="input-group">
-                                                <span><i class="fa fa-user" aria-hidden="true"></i></span>
-                                                <input type="text" placeholder="Address" required="" name="address">
-                                            </div>
-                                            <div class="input-group two-groop">
-                                                <span><i class="fa fa-key" aria-hidden="true"></i></span>
-                                                <input type="Password" placeholder="Password" required="" name="password">
-                                            </div>
-                                            
-                                            <button class="btn btn-primary btn-block" type="submit" >Sign Up</button>
-                                            <p class="account">Don't have an account? <a href="studentLogin.html">Login</a></p>
-                                        </form>
-                                        <iframe name="myIframe"></iframe>
-                                        
-                                        
-                                        
-                                        
-                                    </div>
-                                </div>
-                                <!-- //main content -->
-                            </div>
-                            <!-- //container -->
-                           
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- //banner section -->
+    <div class="row">
+
+  <div class="content">
+    <h3>Feedback</h3>
+    <br>
+    <table class="table table-bordered">
+            <thead>
+                <tr>
+                <th scope="col">From</th>
+                <th scope="col">Message</th>
+                
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php
+                while($count>=0){
+                    $headers .= "<th> {$data['name']} </th>";
+                    $col .= "<td> {$pickresults['message']} </td>";
+                }
+        
+        ?>
+        
+    </tbody>
+    </table>
+  </div>
+
+</div>
 
  
 

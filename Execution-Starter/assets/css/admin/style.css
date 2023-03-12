@@ -99,22 +99,7 @@ img {
     z-index: -1;
     border-radius: 20px;
 }
-input[type="text"],
-input[type="email"],
-input[type="Password"] {
-    font-size: 17px;
-    font-weight: 500;
-    color: #fff;
-    text-align: left;
-    padding: 16px 39px 25px 46px;
-    
-    display: inline-block;
-    box-sizing: border-box;
-    border: none;
-    outline: none;
-    background: transparent;
-    letter-spacing: .5px;
-}
+
 
 .input-group {
     /* margin-bottom: 25px; */

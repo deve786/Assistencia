@@ -15,7 +15,23 @@ session_start();
     if(isset($_POST['submit'])){
         if(!empty($_POST['mon1'])){
         $tru=mysqli_query($conn,"TRUNCATE TABLE timetable");
-        $res = mysqli_query($conn,"insert INTO timetable(mon1,mon2,mon3,mon4,mon5,mon6) values('$_POST[mon1]','$_POST[mon2]','$_POST[mon3]','$_POST[mon4]','$_POST[mon5]','$_POST[mon6]')");
+        $res = mysqli_query($conn,"insert INTO timetable(mon1,mon2,mon3,mon4,mon5,mon6,tue1,tue2,tue3,tue4,tue5,tue6,wed1,wed2,wed3,wed4,wed5,wed6,
+thu1,thu2,thu3,thu4,thu5,thu6,
+            fri1,fri2,fri3,fri4,fri5,fri6
+        ) 
+        values
+        (
+            '
+            $_POST[mon1]','$_POST[mon2]','$_POST[mon3]','$_POST[mon4]','$_POST[mon5]','$_POST[mon6]','
+            $_POST[tue1]','$_POST[tue2]','$_POST[tue3]','$_POST[tue4]','$_POST[tue5]','$_POST[tue6]','
+            $_POST[wed1]','$_POST[wed2]','$_POST[wed3]','$_POST[wed4]','$_POST[wed5]','$_POST[wed6]','
+            $_POST[thu1]','$_POST[thu2]','$_POST[thu3]','$_POST[thu4]','$_POST[thu5]','$_POST[thu6]','
+            $_POST[fri1]','$_POST[fri2]','$_POST[fri3]','$_POST[fri4]','$_POST[fri5]','$_POST[fri6]
+            
+            '
+            
+        )
+            ");
         $success_msg = "Succesfully Change";
       }
       else{
@@ -234,14 +250,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='tue1'  class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>
@@ -250,14 +266,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='tue2'  class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>
@@ -266,14 +282,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='tue3'  class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>
@@ -282,14 +298,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='tue4'  class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>
@@ -298,14 +314,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='tue5'  class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>
@@ -314,14 +330,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='tue6'  class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>
@@ -334,14 +350,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='wed1'  class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>
@@ -350,14 +366,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='wed2'  class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>
@@ -366,14 +382,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='wed3' class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>
@@ -382,14 +398,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='wed4'  class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>
@@ -398,14 +414,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='wed5'  class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>
@@ -414,14 +430,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='wed6'  class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>
@@ -434,14 +450,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='thu1'  class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>
@@ -450,14 +466,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='thu2'  class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>
@@ -466,14 +482,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='thu3'  class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>
@@ -482,14 +498,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='thu4'  class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>
@@ -498,14 +514,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='thu5'  class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>
@@ -514,14 +530,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='thu6'  class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>
@@ -534,14 +550,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='fri1'  class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>
@@ -550,14 +566,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='fri2'  class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>
@@ -566,14 +582,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='fri3'  class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>
@@ -582,14 +598,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='fri4'  class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>
@@ -598,14 +614,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='fri5'  class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>
@@ -614,14 +630,14 @@ session_start();
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Choose...</option>
-                            <option value="1">Graphics</option>
-                            <option value="2">Cryptography</option>
-                            <option value="3">Compiler</option>
-                            <option value="1">Elective 2</option>
-                            <option value="2">Elective 3</option>
-                            <option value="3">Mini Project</option>
+                        <select required name='fri6' class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option disabled selected>Choose...</option>
+                            <option value="Graphics">Graphics</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="Compiler">Compiler</option>
+                            <option value="Elective 2">Elective 2</option>
+                            <option value="Elective 3">Elective 3</option>
+                            <option value="Mini Project">Mini Project</option>
                         </select>
                     </div>
                 </div>

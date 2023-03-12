@@ -1,6 +1,13 @@
-<!--
+<!-- <?php
+    $to      = 'ijasahmediku987@gmail.com';
+    $subject = 'the subject';
+    $message = 'hello';
+    $headers = 'From: webmaster@example.com'       . "\r\n" .
+                 'Reply-To: webmaster@example.com' . "\r\n" .
+                 'X-Mailer: PHP/' . phpversion();
 
--->
+    mail($to, $subject, $message, $headers);
+?> -->
 <!doctype html>
 <html lang="en">
 
@@ -46,14 +53,9 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                         </li>
+                        
                         <li class="nav-item">
-                            <a class="nav-link" href="adminLogin.html">Admin Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="teacherLogin.html">Teacher Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                            <a class="nav-link" href="contact.php">Contact</a>
                         </li>
                         
                     </ul>
@@ -131,7 +133,7 @@
                             <i class="fas fa-envelope-open-text" aria-hidden="true"></i>
                             <div class="ml-3">
                                 <h5 class="contact-text">Mail Us:</h5>
-                                <a href="mailto:info@example.com"> asistencia@gmail.com</a>
+                                <a href="mailto:ijasahmediku987@gmail.com"> asistencia@gmail.com</a>
                             </div>
                         </div>
                     </div>
@@ -165,7 +167,7 @@
                         </div>
                     </div>
                     <div class="form-group-2 mt-3 text-right">
-                        <button type="submit" class="btn btn-style">Submit Form</button>
+                        <button type="submit" class="btn btn-style" href="mailto:ijasahmediku987@gmail.com">Submit Form</button>
                     </div>
                 </form>
             </div>

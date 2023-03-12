@@ -15,7 +15,7 @@ if($_SESSION['name']!='oasis')
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Asistencia - student Registration</title>
+    <title>Asistencia - Student Report</title>
     <!-- google-fonts -->
     <link href="//fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
@@ -53,14 +53,14 @@ if($_SESSION['name']!='oasis')
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav ml-lg-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="studentDashboard.html">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="studentDashboard.php">Home <span class="sr-only">(current)</span></a>
                         </li>
                         
                         <li class="nav-item">
                             <a class="nav-link" href="report.php">Report</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="timetable.html">Time Table</a>
+                            <a class="nav-link" href="timetable-view.php">Time Table</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="logout.php">Logout</a>

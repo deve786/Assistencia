@@ -67,7 +67,7 @@ if($_SESSION['name']!='oasis')
         <div class="container">
             <nav class="navbar navbar-expand-lg stroke">
                 <h1>
-                    <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <a class="navbar-brand d-flex align-items-center" href="../index.html">
                         <span class="lostyle-1">A</span>
                         sistencia
                     </a>
@@ -96,7 +96,7 @@ if($_SESSION['name']!='oasis')
                             <a class="nav-link" href="attendance.php">Attendance</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="timetable.html">Time Table</a>
+                            <a class="nav-link" href="timetable-view.php">Time Table</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="logout.php">Logout</a>
@@ -145,7 +145,7 @@ if($_SESSION['name']!='oasis')
 
 
               <label>Enter Batch</label>
-              <input class="inp-batch" type="text" name="whichbatch" id="input2" placeholder="Only 2020"><br>
+              <input class="inp-batch" type="text" name="whichbatch" id="input2" placeholder="Batch" ><br>
               <input type="submit" class="btn btn-primary col-md-2 col-md-offset-5" value="Show!" name="batch" />
             </div>
              
@@ -176,9 +176,7 @@ if($_SESSION['name']!='oasis')
         <th scope="col">Reg. No.</th>
         <th scope="col">Name</th>
         
-        <th scope="col">Batch</th>
         
-        <th scope="col">Username</th>
         <th scope="col">Status</th>
       </tr>
     </thead>
@@ -193,15 +191,14 @@ if($_SESSION['name']!='oasis')
 
    while ($data = mysqli_fetch_array($all_query)) {
      $i++;
+   
    ?>
 <body>
    <tr>
      <td><?php echo $data['student_id']; ?> <input type="hidden" name="student_id[]" value="<?php echo $data['student_id']; ?>"> </td>
      <td><?php echo $data['student_name']; ?></td>
      
-     <td><?php echo $data['student_batch']; ?></td>
      
-     <td><?php echo $data['student_username']; ?></td>
      <td>
        <label>Present</label>
        <input type="radio" name="st_status[<?php echo $radio; ?>]" value="Present" >

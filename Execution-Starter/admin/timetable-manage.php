@@ -13,7 +13,11 @@ session_start();
     try{
       
     if(isset($_POST['submit'])){
-        if(!empty($_POST['mon1'])){
+        if(!empty($_POST['mon1']&&$_POST['mon2']&&$_POST['mon3']&&$_POST['mon4']&&$_POST['mon5']&&$_POST['mon6']&&
+        $_POST['tue1']&&$_POST['tue2']&&$_POST['tue3']&&$_POST['tue4']&&$_POST['tue5']&&$_POST['tue6']&&
+        $_POST['wed1']&&$_POST['wed2']&&$_POST['wed3']&&$_POST['wed4']&&$_POST['wed5']&&$_POST['wed6']&&
+        $_POST['thu1']&&$_POST['thu2']&&$_POST['thu3']&&$_POST['thu4']&&$_POST['thu5']&&$_POST['thu6']&&
+        $_POST['fri1']&&$_POST['fri2']&&$_POST['fri3']&&$_POST['fri4']&&$_POST['fri5']&&$_POST['fri6'])){
         $tru=mysqli_query($conn,"TRUNCATE TABLE timetable");
         $res = mysqli_query($conn,"insert INTO timetable(mon1,mon2,mon3,mon4,mon5,mon6,tue1,tue2,tue3,tue4,tue5,tue6,wed1,wed2,wed3,wed4,wed5,wed6,
 thu1,thu2,thu3,thu4,thu5,thu6,
@@ -166,7 +170,7 @@ thu1,thu2,thu3,thu4,thu5,thu6,
                 <div class="form-row align-items-center">
                     <div class="col-auto my-1">
                         
-                        <select required name='mon2' class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <select  name='mon2' class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                         <option disabled selected>Choose...</option>
                             <option value="Graphics">Graphics</option>
                             <option value="Cryptography">Cryptography</option>

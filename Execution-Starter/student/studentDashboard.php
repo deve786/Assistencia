@@ -15,7 +15,7 @@ if($_SESSION['name']!='oasis')
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Asistencia - student Registration</title>
+    <title>Asistencia - Student Panel</title>
     <!-- google-fonts -->
     <link href="//fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
@@ -90,7 +90,7 @@ if($_SESSION['name']!='oasis')
     <!-- banner section -->
     <section class="banner-19">
         <div class="banner-layer">
-            <img id="banner" src="assets/images/panelBg.jpg" style="background-repeat:repeat-y;">
+            <!-- <img id="banner" src="assets/images/panelBg.jpg" style="background-repeat:repeat-y;"> -->
             <div class="main-content-top">
                 <div class="container">
                     <div class="main-content">
